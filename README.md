@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-[Link to live deploy](add url here)
+[Link to live deploy](https://c11-note-taker-app-47ae648d4538.herokuapp.com/)
 
 ## Description
 This application is a note-taking web tool built with the help of provided front-end starter code. The front end provides an intuitive interface for creating, viewing, and managing notes. On the back end, the server is powered by Express.js and Node.js, allowing for seamless communication between the client and the server. To uniquely identify each note, the npm package 'uuid' was employed, ensuring that every note is assigned a distinct identifier. The back end is structured in a modularized fashion, making the code organized and maintainable. It features GET, POST, and DELETE routes to retrieve, create, and delete notes, providing a well-rounded and functional note-taking experience.

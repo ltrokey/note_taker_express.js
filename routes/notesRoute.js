@@ -1,20 +1,26 @@
-const noteRoute = require("express").Router();
+const router = require("express").Router();
 const { v4: uuidv4 } = require("uuid");
 
 const { read_File, read_Append } = require("../utils/fsUtils");
 
-noteRoute.get("/", (req, res) => {
+router.get("/notes", (req, res) => {
   console.info(`${req.method} request accepted for note`);
 
-  read_File("./db/db.json").then((data) => res.json(JSON.parse(data)));
+  read_File("./db/db.json", "utf8")
+  .then((data) => {
+    return res.json(JSON.parse(data))
+  })
 });
 
-noteRoute.post('/api/notes', (req, res) => {
+router.post('/notes', (req, res) => {
   console.info(`${req.method} request received to submit notes`);
+
   const { title, text } = req.body;
 
+  let newNote = {}
+
   if (title && text) {
-      const newNote = {
+      newNote = {
           title,
           text,
           id: uuidv4(),
@@ -32,4 +38,4 @@ noteRoute.post('/api/notes', (req, res) => {
 });
 
 
-module.exports = noteRoute;
+module.exports = router;
